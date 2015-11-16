@@ -207,8 +207,8 @@ int main(int argc, char *argv[]) {
 
                 if (write(out_dsc, answer, sizeof(answer)) == -1)
                     syserr("Error in writing the answer (W(i))\n");
-                if (close(out_dsc) == -1)
-                    syserr("Error in close (out_dsc[0] (W(i))\n");
+                // if (close(out_dsc) == -1)
+                    // syserr("Error in close (out_dsc[0] (W(i))\n");
 
 
                 exit(0);
@@ -226,9 +226,9 @@ int main(int argc, char *argv[]) {
         }
         // printf("%s\n", outcome_so_far);
 
-        if (write(pipe_out_dsc[1], outcome_so_far, sizeof(answer)) == -1)
+        if (write(out_dsc, outcome_so_far, sizeof(answer)) == -1)
             syserr("Error in writing the answer from the bottom (W(i))\n");
-        if (close(pipe_out_dsc[1]) == -1)
+        if (close(out_dsc) == -1)
             syserr("Error in close (pipe_out_dsc[1] (W(i))\n");
 
 
