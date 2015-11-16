@@ -207,8 +207,8 @@ int main(int argc, char *argv[]) {
 
                 if (write(out_dsc, answer, sizeof(answer)) == -1)
                     syserr("Error in writing the answer (W(i))\n");
-                // if (close(out_dsc) == -1)
-                    // syserr("Error in close (out_dsc[0] (W(i))\n");
+                if (close(out_dsc) == -1)
+                    syserr("Error in close (out_dsc[0] (W(i))\n");
 
 
                 exit(0);
