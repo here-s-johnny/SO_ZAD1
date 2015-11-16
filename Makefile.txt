@@ -1,0 +1,29 @@
+CXXFLAGS = 
+CFLAGS = 
+
+all: maptel_test1 maptel_test2
+
+debug: CXXFLAGS += -g -DNDEBUG
+debug: CFLAGS += -g -DNDEBUG
+debug: maptel_test1 maptel_test2
+
+maptel_test1: maptel_test1.o maptel.o
+			g++ maptel_test1.o maptel.o -o maptel_test1
+
+maptel_test2: maptel_test2.o maptel.o
+			g++ maptel_test2.o maptel.o -o maptel_test2
+
+maptel.o: maptel.cc
+			g++ $(CXXFLAGS) -c -Wall -O2 -std=c++11 maptel.cc -o maptel.o
+
+maptel_test1.o: maptel_test1.c
+			gcc $(CFLAGS) -c -Wall -O2 maptel_test1.c -o maptel_test1.o
+
+maptel_test2.o: maptel_test2.cc
+			g++ $(CXXFLAGS) -c -Wall -O2 -std=c++11 maptel_test2.cc -o maptel_test2.o
+
+clean: 
+			rm *~ *.o
+
+clear: clean
+			rm maptel_test1 maptel_test2

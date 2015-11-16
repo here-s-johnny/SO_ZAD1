@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = -Wall -ansi --pedantic -c -std=c99
+CFLAGS = -Wall -ansi --pedantic -c -std=c99 -v
 LDFLAGS = -Wall -ansi --pedantic
 
 OBJECTS = err.o
